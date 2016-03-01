@@ -1,9 +1,6 @@
 package com.company.eventHandlers;
 
-import com.company.graphics.Assets;
 import com.company.graphics.Display;
-import com.company.graphics.ImageAlbum;
-import com.company.graphics.ImageLoader;
 import com.company.screeStates.*;
 
 import java.awt.event.MouseEvent;
@@ -26,22 +23,18 @@ public class MouseInput implements MouseListener {
 
         if(StateManager.getCurrentState() instanceof MainMenuState) {
             //Play Button
-            if(MainMenuState.playButton.getColliderBox().contains(mouseX, mouseY)){
+            if(MainMenuState.playButton.getColiderBox().contains(mouseX, mouseY)){
                 StateManager.setCurrentState(new ChooseSideState());
             }
 
             //High Scores Button
-            if (MainMenuState.highScoreButton.getColliderBox().contains(mouseX, mouseY)) {
+            if (MainMenuState.highScoreButton.getColiderBox().contains(mouseX, mouseY)) {
                 StateManager.setCurrentState(new HighScoresState());
             }
 
             //Quit Button
-            if (MainMenuState.quitButton.getColliderBox().contains(mouseX, mouseY)) {
-                StateManager.setCurrentState(new QuitState());
-
-                // TODO: Saving to file
+            if (MainMenuState.quitButton.getColiderBox().contains(mouseX, mouseY)) {
                 System.exit(0);
-
             }
         }
         else if(StateManager.getCurrentState() instanceof ChooseSideState) {
@@ -63,7 +56,8 @@ public class MouseInput implements MouseListener {
                     StateManager.setCurrentState(new GameState());
                 }
             }
-            if(ChooseSideState.backButton.getColliderBox().contains(mouseX, mouseY)) {
+
+            if(ChooseSideState.backButton.getColiderBox().contains(mouseX, mouseY)) {
                 StateManager.setCurrentState(new MainMenuState());
             }
         }
@@ -71,12 +65,10 @@ public class MouseInput implements MouseListener {
         // HighScores
         if(StateManager.getCurrentState() instanceof HighScoresState) {
             // Back Button
-            if(HighScoresState.backButton.getColliderBox().contains(mouseX, mouseY)) {
+            if(HighScoresState.backButton.getColiderBox().contains(mouseX, mouseY)) {
                 StateManager.setCurrentState(new MainMenuState());
             }
         }
-
-
     }
 
     @Override
@@ -93,5 +85,4 @@ public class MouseInput implements MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
-
 }

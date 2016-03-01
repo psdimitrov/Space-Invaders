@@ -1,5 +1,6 @@
 package com.company.eventHandlers;
 
+import com.company.game.concreteObjects.Player;
 import com.company.graphics.Assets;
 import com.company.graphics.Display;
 import com.company.game.Game;
@@ -29,20 +30,20 @@ public class KeyboardInput implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_RIGHT) {
-            GameState.player.isMovingRight = true;
+            Player.isMovingRight = true;
 
         } else if (key == KeyEvent.VK_LEFT) {
-            GameState.player.isMovingLeft = true;
+            Player.isMovingLeft = true;
         } else if (key == KeyEvent.VK_UP) {
-            GameState.player.isMovingUp = true;
+            Player.isMovingUp = true;
         } else if (key == KeyEvent.VK_DOWN) {
-            GameState.player.isMovingDown = true;
+            Player.isMovingDown = true;
         } else if (key == KeyEvent.VK_BACK_SPACE) {
 
         }
 
-        if (key == KeyEvent.VK_SPACE && GameState.player.isFiring == false) {
-            GameState.player.isFiring = true;
+        if (key == KeyEvent.VK_SPACE && !Player.isFiring) {
+            Player.isFiring = true;
             PlayMusic.fire.play();
         }
     }
@@ -51,20 +52,21 @@ public class KeyboardInput implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_RIGHT) {
-            GameState.player.isMovingRight = false;
+            Player.isMovingRight = false;
         } else if (key == KeyEvent.VK_LEFT) {
-            GameState.player.isMovingLeft = false;
+            Player.isMovingLeft = false;
         } else if (key == KeyEvent.VK_UP) {
-            GameState.player.isMovingUp = false;
+            Player.isMovingUp = false;
         } else if (key == KeyEvent.VK_DOWN) {
-            GameState.player.isMovingDown = false;
+            Player.isMovingDown = false;
         } else if (key == KeyEvent.VK_BACK_SPACE) {
 
         }
 
-        if (key == KeyEvent.VK_SPACE && GameState.player.isFiring == true) {
-            GameState.player.isFiring = false;
+        if (key == KeyEvent.VK_SPACE && Player.isFiring) {
+            Player.isFiring = false;
         }
+
         if (StateManager.getCurrentState() instanceof GameOverState) {
             if (key>='A' && key<='Z' && GameOverState.sb.length()<14) {
                 GameOverState.sb.append((char) key);
@@ -78,5 +80,4 @@ public class KeyboardInput implements KeyListener {
             }
         }
     }
-
 }
