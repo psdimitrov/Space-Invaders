@@ -16,13 +16,13 @@ public class Button extends GameObject implements Displayable {
 
 
     public void update() {
-        this.getColliderBox().setBounds(this.getX(), this.getY(),
+        this.getColiderBox().setBounds(this.getX(), this.getY(),
                 this.getObjectIcon().getWidth(), this.getObjectIcon().getHeight());
 
     }
     @Override
     public void display(Graphics g) {
         g.drawImage(this.getObjectIcon(), this.getX(), this.getY(), null);
-        g.drawString(name,this.getX()+ (int) this.getColliderBox().getWidth()/2 - g.getFontMetrics().stringWidth(name)/2 - 4,this.getY()+40);
+        g.drawString(name,this.getX()+ (int) this.getColiderBox().getWidth()/2 - g.getFontMetrics().stringWidth(name)/2 - 4,this.getY()+40);
     }
 }

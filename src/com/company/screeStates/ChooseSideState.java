@@ -30,5 +30,4 @@ public class ChooseSideState extends State {
         g2d.draw(rebelButton);
         backButton.display(g);
     }
-
 }

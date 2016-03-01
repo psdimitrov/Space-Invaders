@@ -60,5 +60,4 @@ public class MainMenuState extends State {
         g.drawImage(Assets.buttonBar,-185,quitButton.getY()+35,null);
         quitButton.display(g);
     }
-
 }

@@ -69,11 +69,11 @@ public class GameState extends State implements Displayable {
         }
         for (int i = 0; i < enemiesList.size(); i++) {
 
-            if(player.collide(enemiesList.get(i).getColliderBox())) {
+            if(player.collide(enemiesList.get(i).getColiderBox())) {
                 player.setNumberOfLives(player.getNumberOfLives() - 1);
                 explode = true;
                 PlayMusic.boom.play();
-                enemiesList.get(i).setColliderBox(new Rectangle(0, 0, 1, 1));
+                enemiesList.get(i).setColiderBox(new Rectangle(0, 0, 1, 1));
 
                 break;
             }
@@ -116,7 +116,6 @@ public class GameState extends State implements Displayable {
                 cropX = cropY = 0;
             }
         }
-
     }
 
     @Override
@@ -159,7 +158,5 @@ public class GameState extends State implements Displayable {
         if (explode) {
             g.drawImage(Assets.explosion.crop(cropX, cropY), player.getX() - 20, player.getY(), null);
         }
-
     }
-
 }

@@ -28,7 +28,6 @@ public class Assets {
     public static BufferedImage button;
     public static BufferedImage buttonBar;
 
-    private static SortedMap<String,Integer> scores;
     public static Map<String,Integer> highScores;
     public static int lowestScore;
 
@@ -73,9 +72,7 @@ public class Assets {
 
     }
     public static void loadingHighScores (){
-
-
-        scores = new TreeMap<>();
+        SortedMap<String, Integer> scores = new TreeMap<>();
         highScores = new LinkedHashMap<>();
         List<Map.Entry<String,Integer>> list;
 
@@ -117,5 +114,4 @@ public class Assets {
             }
         }
     }
-
 }

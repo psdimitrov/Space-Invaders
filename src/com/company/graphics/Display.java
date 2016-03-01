@@ -11,7 +11,6 @@ public class Display {
     private int height;
     private String title;
 
-    private JFrame frame;
     private Canvas canvas;
 
     public Display(String title, int width, int height) {
@@ -23,22 +22,22 @@ public class Display {
     }
 
     private void initDisplay(){
-        this.frame = new JFrame(this.title);
-        this.frame.setSize(width, height);
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.setResizable(false);
-        this.frame.setLocationRelativeTo(null);
-        this.frame.setVisible(true);
-        this.frame.setFocusable(true);
+        JFrame frame = new JFrame(this.title);
+        frame.setSize(width, height);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setFocusable(true);
 
         this.canvas = new Canvas();
         this.canvas.setSize(this.width, this.height);
         this.canvas.setMaximumSize(new Dimension(width, height));
         this.canvas.setMinimumSize(new Dimension(width, height));
 
-        this.frame.add(this.canvas);
+        frame.add(this.canvas);
 
-        this.frame.pack();
+        frame.pack();
     }
 
     public Canvas getCanvas(){

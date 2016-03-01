@@ -2,7 +2,6 @@ package com.company.game.AbstractObjects;
 
 import com.company.gameObjectsInterfaces.Displayable;
 import com.company.gameObjectsInterfaces.Updateable;
-import com.company.graphics.ImageLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -12,11 +11,11 @@ import java.awt.image.BufferedImage;
 
 public abstract class GameObject implements Displayable, Updateable {
 
-    //TODO: implement the basic fields of all obects in the game
+    //TODO: implement the basic fields of all objects in the game
     private int x;
     private int y;
     private int speed;
-    private Rectangle colliderBox;
+    private Rectangle coliderBox;
     private BufferedImage gameObjectIcon;
 
     public GameObject(int x, int y, BufferedImage gameObjectIcon, int speedMultiplier) {
@@ -24,7 +23,7 @@ public abstract class GameObject implements Displayable, Updateable {
         this.y = y;
         this.speed = speedMultiplier;
         this.gameObjectIcon = gameObjectIcon;
-        this.colliderBox = new Rectangle(this.x, this.y,
+        this.coliderBox = new Rectangle(this.x, this.y,
                 this.gameObjectIcon.getWidth(), this.gameObjectIcon.getHeight());
     }
 
@@ -52,20 +51,16 @@ public abstract class GameObject implements Displayable, Updateable {
         return speed;
     }
 
-    public Rectangle getColliderBox() {
-        return colliderBox;
+    public Rectangle getColiderBox() {
+        return coliderBox;
     }
 
-    public void setColliderBox(Rectangle colliderBox) {
-        this.colliderBox = colliderBox;
+    public void setColiderBox(Rectangle coliderBox) {
+        this.coliderBox = coliderBox;
     }
 
     public boolean collide(Rectangle r) {
-        if (this.colliderBox.intersects(r)) {
-            return true;
-        }
-
-        return false;
+        return this.coliderBox.intersects(r);
     }
     @Override
     public void display(Graphics g) {

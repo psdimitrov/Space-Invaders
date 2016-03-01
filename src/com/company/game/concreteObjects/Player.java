@@ -40,7 +40,7 @@ public class Player extends GameObject  {
             this.currentBonus = null;
             this.timeForBonus = 0;
         }
-        this.getColliderBox().setBounds(this.getX(), this.getY(),
+        this.getColiderBox().setBounds(this.getX(), this.getY(),
                 this.getObjectIcon().getWidth(), this.getObjectIcon().getHeight());
 
         if (isMovingRight && this.getX() + this.getSpeed() <= 730) {

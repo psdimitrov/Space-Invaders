@@ -59,6 +59,5 @@ public class HighScoresState extends State {
         g.drawImage(Assets.buttonBar,-20,backButton.getY()+35,null);
         backButton.display(g);
     }
-
 }
 

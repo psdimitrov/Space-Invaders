@@ -1,6 +1,5 @@
 package com.company.game;
 
-import com.company.eventHandlers.PlayMusic;
 import com.company.graphics.Display;
 import com.company.eventHandlers.KeyboardInput;
 import com.company.eventHandlers.MouseInput;
@@ -12,7 +11,7 @@ import java.awt.image.BufferStrategy;
 public class Game implements Runnable {
 
     private Display display;
-    private boolean isRuning = false;
+    private boolean isRunning = false;
 
     private MouseInput mouseInput;
 
@@ -73,21 +72,21 @@ public class Game implements Runnable {
     }
 
     public synchronized void start() {
-        if (isRuning) {
+        if (isRunning) {
             return;
         }
 
-        isRuning = true;
+        isRunning = true;
         thread = new Thread(this);
         thread.start();
     }
 
     public synchronized void stop() {
-        if (!isRuning) {
+        if (!isRunning) {
             return;
         }
 
-        isRuning = false;
+        isRunning = false;
 
         try {
             thread.join();
@@ -108,7 +107,7 @@ public class Game implements Runnable {
         long timer = 0;
         int ticks = 0;
 
-        while (isRuning) {
+        while (isRunning) {
             now = System.nanoTime();
             delta += (now-lastTime) / timePerTick;
             timer += now - lastTime;
@@ -129,5 +128,4 @@ public class Game implements Runnable {
 
         stop();
     }
-
 }

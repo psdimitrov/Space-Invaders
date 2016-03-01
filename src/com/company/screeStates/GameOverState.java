@@ -30,5 +30,4 @@ public class GameOverState extends State implements Displayable {
         g.drawRect(260,370,280,40);
         g.drawString(sb.toString(),265,395);
     }
-
 }

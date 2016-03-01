@@ -22,7 +22,7 @@ public class Bullet extends GameObject {
 
     @Override
     public void update() {
-        this.getColliderBox().setBounds(this.getX(), this.getY(),
+        this.getColiderBox().setBounds(this.getX(), this.getY(),
                 this.getObjectIcon().getWidth(), this.getObjectIcon().getHeight());
         this.setY(this.getY() - this.getSpeed() * speedMultiplier);
 
